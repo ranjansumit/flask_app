@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<style>
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  
+}
+</style>
+   <body>
+   
+      <h3> {{ output }}!</h3> <br>
+      <form action="{{ url_for('index') }}" method="get">
+      <input type="submit" value="home"> <br>
+      
+   </body>
+</html>

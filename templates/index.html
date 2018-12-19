@@ -1,0 +1,77 @@
+<html>
+<h1> Enter the details to Create/Modify/Delete Users </h1>
+<style>
+/* Style all input fields */
+input {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  width:50%;
+}
+input[type=radio] {
+  color: white;
+  width:20%;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+</style>
+<form action="{{ url_for('result') }}" method="post">
+<form>
+<div id="group2">
+	    Operation : <br>
+	    create <input type="radio" value="create" name="operation" required>
+	    delete <input type="radio" value="delete" name="operation" required>
+	    modify <input type="radio" value="modify" name="operation" required>
+	    <br>
+    </div>
+    <div id="group1">
+    Sudo Required:<br>
+        Yes <input type="radio" value="Yes" name="sudo" required>
+    	No <input type="radio" value="No" name="sudo" required>
+    </div>
+    <br>
+    
+    
+
+  User Name: <input type="text" name="username" pattern="^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$" title= "should start with a lowercase letter or _ .It can contain letter,numbers and _ upto 32 characters" required><br>
+  Shell Type: <input type="text" name="shell_type" required><br>
+  Home Folder: <input type="text" name="home_folder" required><br>
+  Password: <input type="password" name="user_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+   
+   <input type="submit" value="Submit"> 
+
+</form>
+
+
+</html>
